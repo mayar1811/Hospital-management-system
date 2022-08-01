@@ -1,0 +1,22 @@
+ID : 00023456
+First Name : mayar
+Last Name : emam
+Gender : female
+Age : 19
+Phone Number : 01234567
+Address : maadi
+Department : heart
+Specialization : surgie
+Rank : 1
+
+ID : 00023456
+First Name : malak
+Last Name : emam
+Gender : female
+Age : 19
+Phone Number : 0123456
+Address : maadi
+Department : eyes
+Specialization : diagnostic
+Rank : 1
+

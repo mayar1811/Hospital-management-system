@@ -5,11 +5,11 @@ class Doctor :public person
 private:
 	string Department;
 	string Specialization;
-	double Rank;
+	int Rank;
 
 public:
 	Doctor(); 
-	Doctor(string Id, string fName, string lName, string Gender, int Age, string mobNum, string add, string department, string specialization,double rank);
+	Doctor(string Id, string fName, string lName, string Gender, int Age, string mobNum, string add, string department, string specialization,int rank);
 	void prescribeMedecine();
 	void CheckReports();
 	void drawSalary();
@@ -20,7 +20,7 @@ public:
 	 {
 		Specialization = specialization;
 	}
-	void setRank(double rank)
+	void setRank(int rank)
 	{
 			Rank = rank ;
 	}
@@ -31,7 +31,7 @@ public:
 	{
 		return Specialization;
 	}
-	double getRank()
+	int getRank()
 	{
 		return Rank ;
 	}

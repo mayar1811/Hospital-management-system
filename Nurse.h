@@ -10,5 +10,16 @@ public:
 	Nurse( string Id, string fName, string lName, string Gender, int Age, string mobNum, string add, string department, string specialization);
 	void drawSalary();
 	void assignedRooms();
+	void setDepartment(string department) {
+		Department = department;
+	}
+	void setSpecialization(string specialization) {
+		Specialization = specialization;
+	}
+	string getDepartment() {
+		return Department;
+	}
+	string getSpecialization() {
+		return Specialization;
+	}
 };
-
