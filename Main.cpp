@@ -2,148 +2,10 @@
 #include<fstream>
 #include<string>
 #include<conio.h>
+#include"Admin.h"
 #include"Doctor.h"
 #include"Nurse.h"
 #include"Receptionist.h"
-using namespace std;
-Doctor addDoctor(Doctor&d,string S,fstream&f){
-	int age, Rank;
-	string FirstName, LastName, Gender, Address, Department, Specialization, mobNumber, ID;
-	cout << "Enter the ID: ";
-	cin >> ID;
-	ID = "000" + ID;
-	d.setId(ID);
-	cout << "Enter the first name: ";
-	cin >> FirstName;
-	d.setFName(FirstName);
-	cout << "Enter the last name: ";
-	cin >> LastName;
-	d.setLName(LastName);
-	cout << "Enter the gender: ";
-	cin >> Gender;
-	d.setGender(Gender);
-	cout << "Enter the age: ";
-	cin >> age;
-	d.setAge(age);
-	cout << "Enter the phone number: ";
-	cin >> mobNumber;
-	d.setMobNum(mobNumber);
-	cout << "Enter the address: ";
-	cin >> Address;
-	d.setAddress(Address);
-	cout << "Enter the department:";
-	cin >> Department;
-	d.setDepartment(Department);
-	cout << "Enter the specialization:";
-	cin >> Specialization;
-	d.setSpecialization(Specialization);
-	cout << "Enter the rank:";
-	cin >> Rank;
-	d.setRank(Rank);
-	system("cls");
-	f.open(S, ios::app);
-	if (f.is_open()) {
-		f << "ID : " << d.getId() << "\n" << "First Name : " << d.getFName()
-			<< "\n" << "Last Name : " << d.getLName() << "\n" << "Gender : " << d.getGender()
-			<< "\n" << "Age : " << d.getAge() << "\n" << "Phone Number : " << d.getMobNum() << "\n"
-			<< "Address : " << d.getAddress() << "\n" << "Department : " << d.getDepartment()
-			<< "\n" << "Specialization : " << d.getSpecialization()
-			<< "\n" << "Rank : " << d.getRank() << "\n" << std::endl;
-		f.close();
-
-	}
-	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
-	system("pause");
-	system("cls");	
-	return d;
-}
-Nurse addNurse(Nurse& n, string S, fstream& f) {
-	int age;
-	string FirstName, LastName, Gender, Address, Department, Specialization, mobNumber, ID;
-	cout << "Enter the ID: ";
-	cin >> ID;
-	ID = "111" + ID;
-	n.setId(ID);
-	cout << "Enter the first name: ";
-	cin >> FirstName;
-	n.setFName(FirstName);
-	cout << "Enter the last name: ";
-	cin >> LastName;
-	n.setLName(LastName);
-	cout << "Enter the gender: ";
-	cin >> Gender;
-	n.setGender(Gender);
-	cout << "Enter the age: ";
-	cin >> age;
-	n.setAge(age);
-	cout << "Enter the phone number: ";
-	cin >> mobNumber;
-	n.setMobNum(mobNumber);
-	cout << "Enter the address: ";
-	cin >> Address;
-	n.setAddress(Address);
-	cout << "Enter the department:";
-	cin >> Department;
-	n.setDepartment(Department);
-	cout << "Enter the specialization:";
-	cin >> Specialization;
-	n.setSpecialization(Specialization);
-	system("cls");
-	f.open(S, ios::app);
-	if (f.is_open()) {
-		f << "ID : " << n.getId() << "\n" << "First Name : " << n.getFName()
-			<< "\n" << "Last Name : " << n.getLName() << "\n" << "Gender : " << n.getGender()
-			<< "\n" << "Age : " << n.getAge() << "\n" << "Phone Number : " << n.getMobNum() << "\n"
-			<< "Address : " << n.getAddress() << "\n" << "Department : " << n.getDepartment()
-			<< "\n" << "Specialization : " << n.getSpecialization() << "\n" << std::endl;
-		f.close();
-
-	}
-	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
-	system("pause");
-	system("cls");
-	return n;
-	
-}
-Receptionist addReceptionist(Receptionist& r, string S, fstream& f) {
-	int age;
-	string FirstName, LastName, Gender, Address, mobNumber, ID;
-	cout << "Enter the ID: ";
-	cin >> ID;
-	ID = "222" + ID;
-	r.setId(ID);
-	cout << "Enter the first name: ";
-	cin >> FirstName;
-	r.setFName(FirstName);
-	cout << "Enter the last name: ";
-	cin >> LastName;
-	r.setLName(LastName);
-	cout << "Enter the gender: ";
-	cin >> Gender;
-	r.setGender(Gender);
-	cout << "Enter the age: ";
-	cin >> age;
-	r.setAge(age);
-	cout << "Enter the phone number: ";
-	cin >> mobNumber;
-	r.setMobNum(mobNumber);
-	cout << "Enter the address: ";
-	cin >> Address;
-	r.setAddress(Address);
-	system("cls");
-	f.open(S, ios::app);
-	if (f.is_open()) {
-		f << "ID : " << r.getId() << "\n" << "First Name : " << r.getFName()
-			<< "\n" << "Last Name : " << r.getLName() << "\n" << "Gender : " << r.getGender()
-			<< "\n" << "Age : " << r.getAge() << "\n" << "Phone Number : " << r.getMobNum() << "\n"
-			<< "Address : " << r.getAddress() << "\n" << std::endl;
-		f.close();
-	}
-	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
-	system("pause");
-	system("cls");
-	return r;
-}
 
 int main() {
 	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\tWELCOME TO\n\n";
@@ -170,6 +32,7 @@ int main() {
 	cin >> choice;
 	switch (choice) {
 	case 1:
+		Admin admin;
 		system("cls");
 		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tHOSPITAL MANAGEMENT SYSTEM\n";
 		cout << "\t\t\t\t\t\t\t\t\t\t       ----------------------------\n";
@@ -187,7 +50,7 @@ int main() {
 		}
 
 		cout << endl;
-		while (Password.length() != 13 && Attempts < 2) {
+		while (Password.length() != 5 && Attempts < 2) {
 			system("cls");
 			cout << "\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\tINVALID PASSWORD" << endl;
 			cout << "\t\t\t\t\t\t\t\t\t\t\t\tPlease try again," << endl;
@@ -208,7 +71,7 @@ int main() {
 			cout << endl;
 			Attempts += 1;
 		}
-		if (Password.length() != 13 && Attempts >= 2) {
+		if (Password.length() != 5 && Attempts >= 2) {
 			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\t\tYOU CANNOT ACCESS \n\n";
 			cout << "\t\t\t\t\t\t\t\t\t\t\tHOSPITAL MANAGEMENT SYSTEM" << endl;
 			system("pause");
@@ -262,20 +125,20 @@ int main() {
 					system("cls");
 					Doctor D;
 					fstream myFile;
-					addDoctor(D, "Doctors.txt", myFile);
+					admin.addDoctor(D,"Doctors.txt",myFile);
 				}
 				else if (option == 2) {
 					system("cls");
 					Nurse N;
 					fstream myFile;
-					addNurse(N, "Nurses.txt", myFile);
+					admin.addNurse(N, "Nurses.txt", myFile);
 
 				}
 				else if (option == 3) {
 					system("cls");
 					Receptionist R;
 					fstream myFile;
-					addReceptionist(R, "Receptionists.txt", myFile);
+					admin.addReceptionist(R, "Receptionists.txt", myFile);
 				}
 			}
 			else if (function == 2) {
@@ -284,9 +147,9 @@ int main() {
 					cout << "\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\tPlease, choose from the following options:\n";
 					cout << "\t\t\t\t\t\t\t\t\t___________________________________________________________________________________            \n";
 					cout << "\t\t\t\t\t\t\t\t       |                                                                                   |\n";
-					cout << "\t\t\t\t\t\t\t\t       | 1 << Delete Doctor                                                                   |\n";
-					cout << "\t\t\t\t\t\t\t\t       | 2 << Delete Nurse                                                                    |\n";
-					cout << "\t\t\t\t\t\t\t\t       | 3 << Delete receptionist                                                             |\n";
+					cout << "\t\t\t\t\t\t\t\t       | 1 << Delete Doctor                                                                |\n";
+					cout << "\t\t\t\t\t\t\t\t       | 2 << Delete Nurse                                                                 |\n";
+					cout << "\t\t\t\t\t\t\t\t       | 3 << Delete receptionist                                                          |\n";
 					cout << "\t\t\t\t\t\t\t\t       |___________________________________________________________________________________|\n";
 					cout << endl;
 					cout << "\t\t\t\t\t\t\t\t         Select one choice: ";
@@ -294,12 +157,15 @@ int main() {
 				} while (option != 1 && option != 2 && option != 3);
 				if (option == 1) {
 					system("cls");
-					ifstream File1;
-					File1.open("Doctors.txt");
-					ofstream File2;
-					File2.open("new.txt");
-
-
+					admin.deleteDoctor();
+				}
+				else if (option == 2) {
+					system("cls");
+					admin.deleteNurse();
+				}
+				else if (option == 3) {
+					system("cls");
+					admin.deleteReceptionist();
 				}
 			}
 			} while (function != 0);

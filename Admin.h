@@ -1,5 +1,12 @@
 #pragma once
 #include<iostream>
+#include<fstream>
+#include<stdio.h>
+#include<cstdio>
+#include<string>
+#include"Doctor.h"
+#include"Nurse.h"
+#include"Receptionist.h"
 using namespace std;
 class Admin
 {
@@ -10,8 +17,12 @@ private:
 public:
 	Admin();
 	Admin(string Username, string Password);
-	void addStaff();
-	void removeStaff();
+	void addDoctor(Doctor&d,string S,fstream&f);
+	void addNurse(Nurse&n,string S,fstream&f);
+	void addReceptionist(Receptionist&r,string S,fstream&f);
+	void deleteDoctor();
+	void deleteNurse();
+	void deleteReceptionist();
 	void updateStaff();
 	void searchForStaffByID();
 	void searchForStaffByName();
