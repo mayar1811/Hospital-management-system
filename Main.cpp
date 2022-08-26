@@ -149,7 +149,7 @@ int main() {
 					cout << "\t\t\t\t\t\t\t\t       |                                                                                   |\n";
 					cout << "\t\t\t\t\t\t\t\t       | 1 << Delete Doctor                                                                |\n";
 					cout << "\t\t\t\t\t\t\t\t       | 2 << Delete Nurse                                                                 |\n";
-					cout << "\t\t\t\t\t\t\t\t       | 3 << Delete receptionist                                                          |\n";
+					cout << "\t\t\t\t\t\t\t\t       | 3 << Delete Receptionist                                                          |\n";
 					cout << "\t\t\t\t\t\t\t\t       |___________________________________________________________________________________|\n";
 					cout << endl;
 					cout << "\t\t\t\t\t\t\t\t         Select one choice: ";
@@ -166,6 +166,33 @@ int main() {
 				else if (option == 3) {
 					system("cls");
 					admin.deleteReceptionist();
+				}
+			}
+			else if (function == 3) {
+				do {
+					system("cls");
+					cout << "\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\tPlease, choose from the following options:\n";
+					cout << "\t\t\t\t\t\t\t\t\t___________________________________________________________________________________            \n";
+					cout << "\t\t\t\t\t\t\t\t       |                                                                                   |\n";
+					cout << "\t\t\t\t\t\t\t\t       | 1 << Update Doctor                                                                |\n";
+					cout << "\t\t\t\t\t\t\t\t       | 2 << Update Nurse                                                                 |\n";
+					cout << "\t\t\t\t\t\t\t\t       | 3 << Update Receptionist                                                          |\n";
+					cout << "\t\t\t\t\t\t\t\t       |___________________________________________________________________________________|\n";
+					cout << endl;
+					cout << "\t\t\t\t\t\t\t\t         Select one choice: ";
+					cin >> option;
+				} while (option != 1 && option != 2 && option != 3);
+				if (option == 1) {
+					system("cls");
+					admin.updateDoctor();
+				}
+				else if (option == 2) {
+					system("cls");
+					admin.updateNurse();
+				}
+				else if (option == 3) {
+					system("cls");
+					admin.updateReceptionist();
 				}
 			}
 			} while (function != 0);

@@ -307,4 +307,810 @@ void Admin::deleteReceptionist() {
 
 }
 
+void Admin::updateDoctor() {
+	int option;
+	string id;
+	cout << "please, Enter the ID of the Doctor you want to change: ";
+	cin >> id;
+	do {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\tPlease, choose the item you want to update from the following options:\n";
+		cout << "\t\t\t\t\t\t\t\t\t___________________________________________________________________________________            \n";
+		cout << "\t\t\t\t\t\t\t\t       |                                                                                   |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 1 << Update ID                                                                    |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 2 << Update Phone Number                                                          |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 3 << Update Address                                                               |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 4 << Update Department                                                            |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 5 << Update Specialization                                                        |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 6 << Update Rank                                                                  |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 0 << Exist                                                                        |\n";
+		cout << "\t\t\t\t\t\t\t\t       |___________________________________________________________________________________|\n";
+		cout << endl;
+		cout << "\t\t\t\t\t\t\t\t         Select one item: ";
+		cin >> option;
+		
+	
+	if (option == 1) {
+		ifstream File1;
+		File1.open("Doctors.txt", ios::in);
+		ofstream File2;
+		File2.open("new.txt", ios::out);
+		string Line;
+		bool flag = false;
+		string item;
+		cout << "enter the updated ID: " << endl;
+		cin >> item;
+		while (1) {
+			getline(File1, Line);
+			if (Line == "")
+				break;
+			Line.erase(Line.find("ID : "), strlen("ID : "));
+			if (Line != id) {
+				File2 << "ID : " << Line << '\n';
+				for (int i = 0; i < 10; i++) {
+					getline(File1, Line);
+					File2 << Line << endl;
+				}
+			}
+			else {
+				flag = true;
+				File2 << "ID : " << item << '\n';
+				for (int i = 0; i < 10; i++) {
+					getline(File1, Line);
+					File2 << Line << endl;
+
+				}
+			}
+
+		}
+		File1.close();
+		File2.close();
+		remove("Doctors.txt");
+		int var = rename("new.txt", "Doctors.txt");
+		if (flag == true) {
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+			system("pause");
+			system("cls");
+		}
+		else {
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+			system("pause");
+			system("cls");
+		}
+	}
+	else if (option == 2) {
+		ifstream File1;
+		File1.open("Doctors.txt", ios::in);
+		ofstream File2;
+		File2.open("new.txt", ios::out);
+		string Line;
+		bool flag = false;
+		string item;
+		cout << "enter the updated Phone Number: " << endl;
+		cin >> item;
+		while (1) {
+			getline(File1, Line);
+			if (Line == "")
+				break;
+			Line.erase(Line.find("ID : "), strlen("ID : "));
+			if (Line != id) {
+				File2 << "ID : " << Line << '\n';
+				for (int i = 0; i < 10; i++) {
+					getline(File1, Line);
+					File2 << Line << endl;
+				}
+			}
+			else {
+				flag = true;
+				File2 << "ID : " << Line << '\n';
+				for (int i = 0; i < 10; i++) {
+					if (i == 4) {
+						getline(File1, Line);
+						File2 <<"Phone Number : "<< item << endl;
+					}
+					else {
+						getline(File1, Line);
+						File2 << Line << endl;
+					}
+				}
+			}
+		}
+		File1.close();
+		File2.close();
+		remove("Doctors.txt");
+		int var = rename("new.txt", "Doctors.txt");
+		if (flag == true) {
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+			system("pause");
+			system("cls");
+		}
+		else {
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+			system("pause");
+			system("cls");
+		}
+
+	}
+	else if (option == 3) {
+	ifstream File1;
+	File1.open("Doctors.txt", ios::in);
+	ofstream File2;
+	File2.open("new.txt", ios::out);
+	string Line;
+	bool flag = false;
+	string item;
+	cout << "enter the updated Address: " << endl;
+	cin >> item;
+	while (1) {
+		getline(File1, Line);
+		if (Line == "")
+			break;
+		Line.erase(Line.find("ID : "), strlen("ID : "));
+		if (Line != id) {
+			File2 << "ID : " << Line << '\n';
+			for (int i = 0; i < 10; i++) {
+				getline(File1, Line);
+				File2 << Line << endl;
+			}
+		}
+		else {
+			flag = true;
+			File2 << "ID : " << Line << '\n';
+			for (int i = 0; i < 10; i++) {
+				if (i == 5) {
+					getline(File1, Line);
+					File2 << "Address : " << item << endl;
+				}
+				else {
+					getline(File1, Line);
+					File2 << Line << endl;
+				}
+			}
+		}
+	}
+	File1.close();
+	File2.close();
+	remove("Doctors.txt");
+	int var=rename("new.txt", "Doctors.txt");
+	if (flag == true) {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+		system("pause");
+		system("cls");
+	}
+	else {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+		system("pause");
+		system("cls");
+	}
+    }
+	else if (option == 4) {
+	ifstream File1;
+	File1.open("Doctors.txt", ios::in);
+	ofstream File2;
+	File2.open("new.txt", ios::out);
+	string Line;
+	bool flag = false;
+	string item;
+	cout << "enter the updated Department: " << endl;
+	cin >> item;
+	while (1) {
+		getline(File1, Line);
+		if (Line == "")
+			break;
+		Line.erase(Line.find("ID : "), strlen("ID : "));
+		if (Line != id) {
+			File2 << "ID : " << Line << '\n';
+			for (int i = 0; i < 10; i++) {
+				getline(File1, Line);
+				File2 << Line << endl;
+			}
+		}
+		else {
+			flag = true;
+			File2 << "ID : " << Line << '\n';
+			for (int i = 0; i < 10; i++) {
+				if (i == 6) {
+					getline(File1, Line);
+					File2 << "Department : " << item << endl;
+				}
+				else {
+					getline(File1, Line);
+					File2 << Line << endl;
+				}
+			}
+		}
+	}
+	File1.close();
+	File2.close();
+	remove("Doctors.txt");
+	int var = rename("new.txt", "Doctors.txt");
+	if (flag == true) {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+		system("pause");
+		system("cls");
+	}
+	else {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+		system("pause");
+		system("cls");
+	}
+    }
+	else if (option == 5) {
+	ifstream File1;
+	File1.open("Doctors.txt", ios::in);
+	ofstream File2;
+	File2.open("new.txt", ios::out);
+	string Line;
+	bool flag = false;
+	string item;
+	cout << "enter the updated specialization: " << endl;
+	cin >> item;
+	while (1) {
+		getline(File1, Line);
+		if (Line == "")
+			break;
+		Line.erase(Line.find("ID : "), strlen("ID : "));
+		if (Line != id) {
+			File2 << "ID : " << Line << '\n';
+			for (int i = 0; i < 10; i++) {
+				getline(File1, Line);
+				File2 << Line << endl;
+			}
+		}
+		else {
+			flag = true;
+			File2 << "ID : " << Line << '\n';
+			for (int i = 0; i < 10; i++) {
+				if (i == 7) {
+					getline(File1, Line);
+					File2 << "Specialization : " << item << endl;
+				}
+				else {
+					getline(File1, Line);
+					File2 << Line << endl;
+				}
+			}
+		}
+	}
+	File1.close();
+	File2.close();
+	remove("Doctors.txt");
+	int var = rename("new.txt", "Doctors.txt");
+	if (flag == true) {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+		system("pause");
+		system("cls");
+	}
+	else {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+		system("pause");
+		system("cls");
+	}
+    }
+	else if (option == 6) {
+	ifstream File1;
+	File1.open("Doctors.txt", ios::in);
+	ofstream File2;
+	File2.open("new.txt", ios::out);
+	string Line;
+	bool flag = false;
+	int item;
+	cout << "enter the updated Rank: " << endl;
+	cin >> item;
+	while (1) {
+		getline(File1, Line);
+		if (Line == "")
+			break;
+		Line.erase(Line.find("ID : "), strlen("ID : "));
+		if (Line != id) {
+			File2 << "ID : " << Line << '\n';
+			for (int i = 0; i < 10; i++) {
+				getline(File1, Line);
+				File2 << Line << endl;
+			}
+		}
+		else {
+			flag = true;
+			File2 << "ID : " << Line << '\n';
+			for (int i = 0; i < 10; i++) {
+				if (i == 8) {
+					getline(File1, Line);
+					File2 << "Rank : " << item << endl;
+				}
+				else {
+					getline(File1, Line);
+					File2 << Line << endl;
+				}
+			}
+		}
+	}
+	File1.close();
+	File2.close();
+	remove("Doctors.txt");
+	int var = rename("new.txt", "Doctors.txt");
+	if (flag == true) {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+		system("pause");
+		system("cls");
+	}
+	else {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+		system("pause");
+		system("cls");
+	}
+    }
+	} while (option != 0);
+	system("cls");
+}
+
+void Admin::updateNurse()
+{
+	int option;
+	string id;
+	cout << "please, Enter the ID of the Nurse you want to change: ";
+	cin >> id;
+	do {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\tPlease, choose the item you want to update from the following options:\n";
+		cout << "\t\t\t\t\t\t\t\t\t___________________________________________________________________________________            \n";
+		cout << "\t\t\t\t\t\t\t\t       |                                                                                   |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 1 << Update ID                                                                    |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 2 << Update Phone Number                                                          |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 3 << Update Address                                                               |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 4 << Update Department                                                            |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 5 << Update Specialization                                                        |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 0 << Exist                                                                        |\n";
+		cout << "\t\t\t\t\t\t\t\t       |___________________________________________________________________________________|\n";
+		cout << endl;
+		cout << "\t\t\t\t\t\t\t\t         Select one item: ";
+		cin >> option;
+		if (option == 1) {
+			ifstream File1;
+			File1.open("Nurses.txt", ios::in);
+			ofstream File2;
+			File2.open("New.txt", ios::out);
+			string Line;
+			bool flag = false;
+			string item;
+			cout << "enter the updated ID: " << endl;
+			cin >> item;
+			while (1) {
+				getline(File1, Line);
+				if (Line == "")
+					break;
+				Line.erase(Line.find("ID : "), strlen("ID : "));
+				if (Line != id) {
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 9; i++) {
+						getline(File1, Line);
+						File2 << Line << endl;
+					}
+				}
+				else {
+					flag = true;
+					File2 << "ID : " << item << '\n';
+					for (int i = 0; i < 9; i++) {
+						getline(File1, Line);
+						File2 << Line << endl;
+
+					}
+				}
+
+			}
+			File1.close();
+			File2.close();
+			remove("Nurses.txt");
+			int var = rename("New.txt", "Nurses.txt");
+			if (flag == true) {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+			else {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+		}
+		else if (option == 2) {
+			ifstream File1;
+			File1.open("Nurses.txt", ios::in);
+			ofstream File2;
+			File2.open("New.txt", ios::out);
+			string Line;
+			bool flag = false;
+			string item;
+			cout << "enter the updated Phone Number: " << endl;
+			cin >> item;
+			while (1) {
+				getline(File1, Line);
+				if (Line == "")
+					break;
+				Line.erase(Line.find("ID : "), strlen("ID : "));
+				if (Line != id) {
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 9; i++) {
+						getline(File1, Line);
+						File2 << Line << endl;
+					}
+				}
+				else {
+					flag = true;
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 9; i++) {
+						if (i == 4) {
+							getline(File1, Line);
+							File2 << "Phone Number : " << item << endl;
+						}
+						else {
+							getline(File1, Line);
+							File2 << Line << endl;
+						}
+					}
+				}
+			}
+			File1.close();
+			File2.close();
+			remove("Nurses.txt");
+			int var = rename("New.txt", "Nurses.txt");
+			if (flag == true) {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+			else {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+		}
+		else if (option == 3) {
+			ifstream File1;
+			File1.open("Nurses.txt", ios::in);
+			ofstream File2;
+			File2.open("New.txt", ios::out);
+			string Line;
+			bool flag = false;
+			string item;
+			cout << "enter the updated Address: " << endl;
+			cin >> item;
+			while (1) {
+				getline(File1, Line);
+				if (Line == "")
+					break;
+				Line.erase(Line.find("ID : "), strlen("ID : "));
+				if (Line != id) {
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 9; i++) {
+						getline(File1, Line);
+						File2 << Line << endl;
+					}
+				}
+				else {
+					flag = true;
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 9; i++) {
+						if (i == 5) {
+							getline(File1, Line);
+							File2 << "Address : " << item << endl;
+						}
+						else {
+							getline(File1, Line);
+							File2 << Line << endl;
+						}
+					}
+				}
+			}
+			File1.close();
+			File2.close();
+			remove("Nurses.txt");
+			int var = rename("New.txt", "Nurses.txt");
+			if (flag == true) {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+			else {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+		}
+		else if (option == 4) {
+		ifstream File1;
+		File1.open("Nurses.txt", ios::in);
+		ofstream File2;
+		File2.open("New.txt", ios::out);
+		string Line;
+		bool flag = false;
+		string item;
+		cout << "enter the updated Department: " << endl;
+		cin >> item;
+		while (1) {
+			getline(File1, Line);
+			if (Line == "")
+				break;
+			Line.erase(Line.find("ID : "), strlen("ID : "));
+			if (Line != id) {
+				File2 << "ID : " << Line << '\n';
+				for (int i = 0; i < 9; i++) {
+					getline(File1, Line);
+					File2 << Line << endl;
+				}
+			}
+			else {
+				flag = true;
+				File2 << "ID : " << Line << '\n';
+				for (int i = 0; i < 9; i++) {
+					if (i == 6) {
+						getline(File1, Line);
+						File2 << "Department : " << item << endl;
+					}
+					else {
+						getline(File1, Line);
+						File2 << Line << endl;
+					}
+				}
+			}
+		}
+		File1.close();
+		File2.close();
+		remove("Nurses.txt");
+		int var = rename("New.txt", "Nurses.txt");
+		if (flag == true) {
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+			system("pause");
+			system("cls");
+		}
+		else {
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+			system("pause");
+			system("cls");
+		}
+	    }
+		else if (option == 5) {
+			ifstream File1;
+			File1.open("Nurses.txt", ios::in);
+			ofstream File2;
+			File2.open("New.txt", ios::out);
+			string Line;
+			bool flag = false;
+			string item;
+			cout << "enter the updated specialization: " << endl;
+			cin >> item;
+			while (1) {
+				getline(File1, Line);
+				if (Line == "")
+					break;
+				Line.erase(Line.find("ID : "), strlen("ID : "));
+				if (Line != id) {
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 9; i++) {
+						getline(File1, Line);
+						File2 << Line << endl;
+					}
+				}
+				else {
+					flag = true;
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 9; i++) {
+						if (i == 7) {
+							getline(File1, Line);
+							File2 << "Specialization : " << item << endl;
+						}
+						else {
+							getline(File1, Line);
+							File2 << Line << endl;
+						}
+					}
+				}
+			}
+			File1.close();
+			File2.close();
+			remove("Nurses.txt");
+			int var = rename("New.txt", "Nurses.txt");
+			if (flag == true) {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+			else {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+		}
+	} while (option != 0);
+	system("cls");
+}
+
+void Admin::updateReceptionist()
+{
+	int option;
+	string id;
+	cout << "please, Enter the ID of the Recetionist you want to change: ";
+	cin >> id;
+	do {
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\tPlease, choose the item you want to update from the following options:\n";
+		cout << "\t\t\t\t\t\t\t\t\t___________________________________________________________________________________            \n";
+		cout << "\t\t\t\t\t\t\t\t       |                                                                                   |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 1 << Update ID                                                                    |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 2 << Update Phone Number                                                          |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 3 << Update Address                                                               |\n";
+		cout << "\t\t\t\t\t\t\t\t       | 0 << Exist                                                                        |\n";
+		cout << "\t\t\t\t\t\t\t\t       |___________________________________________________________________________________|\n";
+		cout << endl;
+		cout << "\t\t\t\t\t\t\t\t         Select one item: ";
+		cin >> option;
+		if (option == 1) {
+			ifstream File1;
+			File1.open("Receptionists.txt", ios::in);
+			ofstream File2;
+			File2.open("new.txt", ios::out);
+			string Line;
+			bool flag = false;
+			string item;
+			cout << "enter the updated ID: " << endl;
+			cin >> item;
+			while (1) {
+				getline(File1, Line);
+				if (Line == "")
+					break;
+				Line.erase(Line.find("ID : "), strlen("ID : "));
+				if (Line != id) {
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 7; i++) {
+						getline(File1, Line);
+						File2 << Line << endl;
+					}
+				}
+				else {
+					flag = true;
+					File2 << "ID : " << item << '\n';
+					for (int i = 0; i < 7; i++) {
+						getline(File1, Line);
+						File2 << Line << endl;
+
+					}
+				}
+
+			}
+			File1.close();
+			File2.close();
+			remove("Receptionists.txt");
+			int var = rename("new.txt", "Receptionists.txt");
+			if (flag == true) {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+			else {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+		}
+		else if (option == 2) {
+			ifstream File1;
+			File1.open("Receptionists.txt", ios::in);
+			ofstream File2;
+			File2.open("new.txt", ios::out);
+			string Line;
+			bool flag = false;
+			string item;
+			cout << "enter the updated Phone Number: " << endl;
+			cin >> item;
+			while (1) {
+				getline(File1, Line);
+				if (Line == "")
+					break;
+				Line.erase(Line.find("ID : "), strlen("ID : "));
+				if (Line != id) {
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 7; i++) {
+						getline(File1, Line);
+						File2 << Line << endl;
+					}
+				}
+				else {
+					flag = true;
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 7; i++) {
+						if (i == 4) {
+							getline(File1, Line);
+							File2 << "Phone Number : " << item << endl;
+						}
+						else {
+							getline(File1, Line);
+							File2 << Line << endl;
+						}
+					}
+				}
+			}
+			File1.close();
+			File2.close();
+			remove("Receptionists.txt");
+			int var = rename("new.txt", "Receptionists.txt");
+			if (flag == true) {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+			else {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+		}
+		else if (option == 3) {
+			ifstream File1;
+			File1.open("Receptionists.txt", ios::in);
+			ofstream File2;
+			File2.open("new.txt", ios::out);
+			string Line;
+			bool flag = false;
+			string item;
+			cout << "enter the updated Address: " << endl;
+			cin >> item;
+			while (1) {
+				getline(File1, Line);
+				if (Line == "")
+					break;
+				Line.erase(Line.find("ID : "), strlen("ID : "));
+				if (Line != id) {
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 7; i++) {
+						getline(File1, Line);
+						File2 << Line << endl;
+					}
+				}
+				else {
+					flag = true;
+					File2 << "ID : " << Line << '\n';
+					for (int i = 0; i < 7; i++) {
+						if (i == 5) {
+							getline(File1, Line);
+							File2 << "Address : " << item << endl;
+						}
+						else {
+							getline(File1, Line);
+							File2 << Line << endl;
+						}
+					}
+				}
+			}
+			File1.close();
+			File2.close();
+			remove("Receptionists.txt");
+			int var = rename("new.txt", "Receptionists.txt");
+			if (flag == true) {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+			else {
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tSORRY,ID NOT FOUND\n\n\n\n " << endl;
+				cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t\tUNSUCCESSFUL TRANSACTION\n\n\n\n " << endl;
+				system("pause");
+				system("cls");
+			}
+		}
+	} while (option != 0);
+	system("cls");
+}
+
+void Admin::searchForStaffByID()
+{
+}
 

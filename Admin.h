@@ -23,7 +23,9 @@ public:
 	void deleteDoctor();
 	void deleteNurse();
 	void deleteReceptionist();
-	void updateStaff();
+	void updateDoctor();
+	void updateNurse();
+	void updateReceptionist();
 	void searchForStaffByID();
 	void searchForStaffByName();
 	void getRooms();
